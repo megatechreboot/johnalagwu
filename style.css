@@ -1,4 +1,4 @@
- /* body */
+    /* body */
     * {
       margin: 0;
       padding: 0;
@@ -29,6 +29,7 @@
       align-items: center;
       justify-content: space-between;
       z-index: 999;
+      cursor: pointer
     }
     
     .search {
@@ -51,23 +52,19 @@
       display: none;
       font-size: 1.9rem;
       font-weight: bold;
+      cursor: pointer;
     }
     
-    .nav-links > div {
+    .nav-links {
       display: flex;
       gap: 1.5rem;
       cursor: pointer;
     }
     
-    div a {
+    a {
       color: #fff;
       text-decoration: none;
-      font-size: 
-    }
-    
-    .nav-links {
-      display: flex;
-      gap: 1rem;
+      font-size: 1rem;
     }
     
     /* sections */
@@ -87,7 +84,7 @@
     h2 {
       margin-bottom: 1.2rem;
       font-size: 2rem;
-      color: red;
+      color: darkred;
     }
     
     .faq-item {
@@ -180,17 +177,11 @@
       font-size: 1rem;
       font-weight: bold;
       border-radius: 19px;
+      cursor: pointer;
     }
     
     .nav-links a:hover {
-      background: darkred;
-    }
-    .nav-links a {
-      display: block;
-    }
-    
-    .icon1, .icon2, .icon3, .icon4, .icon5 {
-      display: none;
+      background: gray;
     }
     
     h3 {
@@ -204,9 +195,10 @@
     p {
       justify-content: space-between;
       color: #333333;
+      margin-bottom: 0.4rem;
     }
     
-    ol li {
+    ol, ul li {
       font-weight: bold;
       padding: 0.5rem;
     }
@@ -217,6 +209,11 @@
       padding: 0.3rem;
       background: red;
       border-radius: 8px;
+      cursor: pointer;
+    }
+    
+    .explore {
+      display: none;
     }
     
     footer {
@@ -242,7 +239,7 @@
         left: 0;
         width: 200px;
         padding-top: 2rem;
-        height: 40vh;
+        height: 60vh;
         border-radius: 9px;
       }
       
@@ -268,35 +265,36 @@
         display: flex;
       }
       
-      .nav-links > div {
+      .nav-links {
         display: flex;
       }
       
       .nav-links a {
         display: block;
+        margin-left: 1.5rem;
+      }
+      
+      .explore {
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+        display: block;
+        padding: 0.2rem;
+        background: darkred;
+        border-radius: 19px;
+        color: white;
       }
       
       .nav-links a:hover {
-        red;
+        gray;
       }
       
-      .util {
-        margin-left: -1rem;
-      }
-      
+    
       .icon-test {
         display: flex;
         gap: 3px;
         align-items: center;
-      }
-      
-      .icon1, .icon2, .icon3, .icon4, .icon5 {
-        width: 30px;
-        height: 30px;
-        padding: 0.1rem;
-        background: white;
-        border-radius: 5px;
-        display: flex;
       }
       
       .togglemenu {
