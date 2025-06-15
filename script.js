@@ -1,82 +1,38 @@
-$(document).ready(function() {
-      $('#hamburger').click(function() {
-        $('.nav-links').toggleClass('active');
-        $(this).hide();
-        $('#hamburgerX').show();
-      });
-      $('#hamburgerX').click(function() {
-        $('.nav-links').removeClass('active');
-        $(this).hide();
-        $('#hamburger').show();
-      });
-      
-      //collapse only links that are not submenu
-      $('.nav-links a:not(.has-submenu)').click(function(event) {
-        const target = $(this).attr('href');
-        
-       // prevent default only for #
-        if (target.startsWith('#')) {
-          event.preventDefault();
-          $('html,body').animate({scrollTop: $(target).offset().top }, 500);
-        }
-        
-        //close sidebar
-        $('.nav-links').removeClass('active');
-        $('#hamburger').show();
-        $('#hamburgerX').hide();
-      });
-        $('#hamburgerX').hide();
-        
-        //toggling submenu
-        $('#submenuToggle').click(function(e) {
-          e.preventDefault();
-          $('#submenu').toggle();
-        });
+$(document).ready(function () {
+    // Toggle sidebar
+    $('#hamburger').on('click', function (e) {
+      e.stopPropagation();
+      $('#nav-links').toggleClass('active');
     });
-    
-    //FAQ toggle
-    
-    const faqQue = document.querySelectorAll('.faq-question');
-    
-    faqQue.forEach(question => {
-      question.addEventListener('click', () => {
-        question.classList.toggle('active');
-        
-        const answer = question.nextElementSibling;
-        answer.classList.toggle('open');
-      });
-      
-      $(document).on('click', function (event) {
-      const $target = $(event.target);
-      
 
-      // === 1. Close nav-links if click is outside nav-links and hamburger buttons
+    // Toggle submenu
+    $('#submenuToggle').on('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      $('#submenu').slideToggle();
+    });
+
+    // Clicking nav-links or submenu <a>: collapse sidebar (except submenuToggle)
+    $('#nav-links a').on('click', function (e) {
+      const isSubmenuToggle = $(this).is('#submenuToggle');
+
+      if (!isSubmenuToggle) {
+        $('#nav-links').removeClass('active');
+        $('#submenu').slideUp();
+      }
+      // Allow default navigation behavior
+    });
+
+    // Clicking anywhere outside closes sidebar and submenu
+    $('body').on('click', function (e) {
       if (
-        !$target.closest('#nav-links').length &&
-        !$target.closest('#hamburger').length &&
-        !$target.closest('#hamburgerX').length
+        !$(e.target).closest('#nav-links').length &&
+        !$(e.target).is('#hamburger')
       ) {
-        $('#nav-links').removeClass('active'); // assumes 'active' class is used to show nav
-        $('#hamburgerX').hide();
-        $('#hamburger').show();
-      }
-
-      // === 2. Close submenu if click is outside submenu or its toggle
-      if (
-        !$target.closest('#submenu').length &&
-        !$target.closest('#submenuToggle').length
-        ) {
-        $('#submenu').hide();
+        $('#nav-links').removeClass('active');
+        $('#submenu').slideUp();
       }
     });
-    
-    
-
-    // === 3. Collapse submenu if a submenu link is clicked
-    $('#submenu a').on('click', function () {
-      $('#submenu').hide();
-    });
-    
     // input keyup name capture
     $("#nameInput").keyup(function() {
       var name = $(this).val();
@@ -92,6 +48,22 @@ $(document).ready(function() {
       $(this).css("border", "3px solid red");
     });
   });
+  
+    
+    //FAQ toggle
+    
+    // FAQ toggle
+    const faqQue = document.querySelectorAll('.faq-question');
+
+  faqQue.forEach(question => {
+  question.addEventListener('click', () => {
+    question.classList.toggle('active');
+    const answer = question.nextElementSibling;
+    answer.classList.toggle('open');
+  });
+});
+
+
   
     
     function handleSearch(event) {
