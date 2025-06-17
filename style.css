@@ -105,6 +105,7 @@
     
     a:hover {
       background: var(--link-hover);
+      text-decoration: underline;
     }
   
     
@@ -186,6 +187,7 @@
     
     .btn:hover {
       background-color: var(--button-hover);
+      text-decoration: underline;
     }
     
     
@@ -259,7 +261,7 @@
     
     .member {
       height: 400px;
-      width: 400px;
+      width: 500px;
       padding: 0.3rem;
       background: var(--secondary-bg);
       border-radius: 8px;
@@ -379,8 +381,8 @@
       }
       
       .video {
-        height: 200px;
-        width: 240px;
+        height: 160px;
+        width: 200px;
       }
       
       .MegaTech {
@@ -400,7 +402,6 @@
       
       nav {
         margin-top: -0.5rem;
-        displ
         flex-wrap: wrap;
         gap: 10px;
       }
@@ -451,6 +452,7 @@
       
       .nav-links a:hover {
         background: var(--link-hover);
+        text-decoration: underline;
       }
       
       .togglemenu {
