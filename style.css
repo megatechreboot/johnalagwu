@@ -60,6 +60,10 @@
       cursor: pointer
     }
     
+    .search:hover {
+      color: var(--primary-bg);
+    }
+    
     
     .togglemenu {
       display: none;
@@ -259,6 +263,10 @@
       color: var(--text-primary);
     }
     
+    ol, ul:hover {
+      text-decoration: underline;
+    }
+    
     .member {
       height: 400px;
       width: 500px;
@@ -316,6 +324,7 @@
     
     .gadget-submenu li a:hover {
       background: var(--link-hover);
+      text-decoration: underline;
     }
     
     .standard {
@@ -375,6 +384,10 @@
         font-size: 0.9rem;
       }
       
+      ol, ul:hover {
+        text-decoration: underline;
+      }
+      
       .member {
         height: 250px;
         width:250px;
@@ -397,6 +410,10 @@
       .search {
         padding: 0.4rem;
         width: 150px;
+      }
+      
+      .search:hover {
+        color: var(--primary-bg);
       }
       
       
